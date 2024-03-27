@@ -1,18 +1,19 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
+  Typography,
   Button,
   TextField,
   Dialog,
   DialogActions,
   DialogContent,
   DialogTitle,
-} from "@material-ui/core";
+} from '@material-ui/core';
 
 const TodoForm = ({ onSaveTodo }) => {
   const [open, setOpen] = useState(false);
   const [todo, setTodo] = useState({
-    title: "",
-    description: "",
+    title: '',
+    description: '',
     id: Date.now(),
   });
 
@@ -22,25 +23,27 @@ const TodoForm = ({ onSaveTodo }) => {
 
   const handleClose = () => {
     setOpen(false);
-    setTodo({ title: "", description: "", id: Date.now() });
+    setTodo({ title: '', description: '', id: Date.now() });
   };
 
   const handleSave = () => {
     onSaveTodo(todo);
-    setTodo({ title: "", description: "", id: Date.now() });
+    setTodo({ title: '', description: '', id: Date.now() });
     handleClose();
   };
 
   return (
     <div>
-      <Button
-        variant="outlined"
-        color="primary"
-        onClick={handleClickOpen}
-        style={{ marginBottom: "2rem" }}
-      >
-        Add Todo
-      </Button>
+      <Typography align="center">
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={handleClickOpen}
+          style={{ marginBottom: '2rem' }}
+        >
+          Add Todo
+        </Button>
+      </Typography>
       <Dialog
         open={open}
         onClose={handleClose}
